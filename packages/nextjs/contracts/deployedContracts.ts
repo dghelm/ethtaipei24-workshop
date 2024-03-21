@@ -4,6 +4,365 @@
  */
 import { GenericContractsDeclaration } from "~~/utils/scaffold-eth/contract";
 
-const deployedContracts = {} as const;
+const deployedContracts = {
+  31337: {
+    ProofGatedValueSetter: {
+      address: "0x9d4454B023096f34B160D6B654540c56A1F81688",
+      abi: [
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "ultraVerifierAddress",
+              type: "address",
+            },
+          ],
+          stateMutability: "nonpayable",
+          type: "constructor",
+        },
+        {
+          anonymous: false,
+          inputs: [
+            {
+              indexed: true,
+              internalType: "address",
+              name: "valueSetter",
+              type: "address",
+            },
+            {
+              indexed: false,
+              internalType: "bytes32",
+              name: "newValue",
+              type: "bytes32",
+            },
+          ],
+          name: "SecureValueChange",
+          type: "event",
+        },
+        {
+          inputs: [],
+          name: "secureValue",
+          outputs: [
+            {
+              internalType: "bytes32",
+              name: "",
+              type: "bytes32",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "bytes32",
+              name: "_newSecureValue",
+              type: "bytes32",
+            },
+            {
+              internalType: "bytes",
+              name: "_proof",
+              type: "bytes",
+            },
+            {
+              internalType: "bytes32[]",
+              name: "_publicInputs",
+              type: "bytes32[]",
+            },
+          ],
+          name: "setSecureValue",
+          outputs: [
+            {
+              internalType: "bool",
+              name: "",
+              type: "bool",
+            },
+          ],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+      ],
+      inheritedFunctions: {},
+    },
+    VerifierKnowDifferentNumbers: {
+      address: "0x8f86403A4DE0BB5791fa46B8e795C547942fE4Cf",
+      abi: [
+        {
+          inputs: [],
+          name: "INVALID_VERIFICATION_KEY",
+          type: "error",
+        },
+        {
+          inputs: [],
+          name: "MOD_EXP_FAILURE",
+          type: "error",
+        },
+        {
+          inputs: [],
+          name: "OPENING_COMMITMENT_FAILED",
+          type: "error",
+        },
+        {
+          inputs: [],
+          name: "PAIRING_FAILED",
+          type: "error",
+        },
+        {
+          inputs: [],
+          name: "PAIRING_PREAMBLE_FAILED",
+          type: "error",
+        },
+        {
+          inputs: [],
+          name: "POINT_NOT_ON_CURVE",
+          type: "error",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "expected",
+              type: "uint256",
+            },
+            {
+              internalType: "uint256",
+              name: "actual",
+              type: "uint256",
+            },
+          ],
+          name: "PUBLIC_INPUT_COUNT_INVALID",
+          type: "error",
+        },
+        {
+          inputs: [],
+          name: "PUBLIC_INPUT_GE_P",
+          type: "error",
+        },
+        {
+          inputs: [],
+          name: "PUBLIC_INPUT_INVALID_BN128_G1_POINT",
+          type: "error",
+        },
+        {
+          inputs: [],
+          name: "getVerificationKeyHash",
+          outputs: [
+            {
+              internalType: "bytes32",
+              name: "",
+              type: "bytes32",
+            },
+          ],
+          stateMutability: "pure",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "bytes",
+              name: "_proof",
+              type: "bytes",
+            },
+            {
+              internalType: "bytes32[]",
+              name: "_publicInputs",
+              type: "bytes32[]",
+            },
+          ],
+          name: "verify",
+          outputs: [
+            {
+              internalType: "bool",
+              name: "",
+              type: "bool",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+      ],
+      inheritedFunctions: {},
+    },
+  },
+  534351: {
+    ProofGatedValueSetter: {
+      address: "0xf5c4a909455C00B99A90d93b48736F3196DB5621",
+      abi: [
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "ultraVerifierAddress",
+              type: "address",
+            },
+          ],
+          stateMutability: "nonpayable",
+          type: "constructor",
+        },
+        {
+          anonymous: false,
+          inputs: [
+            {
+              indexed: true,
+              internalType: "address",
+              name: "valueSetter",
+              type: "address",
+            },
+            {
+              indexed: false,
+              internalType: "bytes32",
+              name: "newValue",
+              type: "bytes32",
+            },
+          ],
+          name: "SecureValueChange",
+          type: "event",
+        },
+        {
+          inputs: [],
+          name: "secureValue",
+          outputs: [
+            {
+              internalType: "bytes32",
+              name: "",
+              type: "bytes32",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "bytes32",
+              name: "_newSecureValue",
+              type: "bytes32",
+            },
+            {
+              internalType: "bytes",
+              name: "_proof",
+              type: "bytes",
+            },
+            {
+              internalType: "bytes32[]",
+              name: "_publicInputs",
+              type: "bytes32[]",
+            },
+          ],
+          name: "setSecureValue",
+          outputs: [
+            {
+              internalType: "bool",
+              name: "",
+              type: "bool",
+            },
+          ],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+      ],
+      inheritedFunctions: {},
+    },
+    VerifierKnowDifferentNumbers: {
+      address: "0xdF46e54aAadC1d55198A4a8b4674D7a4c927097A",
+      abi: [
+        {
+          inputs: [],
+          name: "INVALID_VERIFICATION_KEY",
+          type: "error",
+        },
+        {
+          inputs: [],
+          name: "MOD_EXP_FAILURE",
+          type: "error",
+        },
+        {
+          inputs: [],
+          name: "OPENING_COMMITMENT_FAILED",
+          type: "error",
+        },
+        {
+          inputs: [],
+          name: "PAIRING_FAILED",
+          type: "error",
+        },
+        {
+          inputs: [],
+          name: "PAIRING_PREAMBLE_FAILED",
+          type: "error",
+        },
+        {
+          inputs: [],
+          name: "POINT_NOT_ON_CURVE",
+          type: "error",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "expected",
+              type: "uint256",
+            },
+            {
+              internalType: "uint256",
+              name: "actual",
+              type: "uint256",
+            },
+          ],
+          name: "PUBLIC_INPUT_COUNT_INVALID",
+          type: "error",
+        },
+        {
+          inputs: [],
+          name: "PUBLIC_INPUT_GE_P",
+          type: "error",
+        },
+        {
+          inputs: [],
+          name: "PUBLIC_INPUT_INVALID_BN128_G1_POINT",
+          type: "error",
+        },
+        {
+          inputs: [],
+          name: "getVerificationKeyHash",
+          outputs: [
+            {
+              internalType: "bytes32",
+              name: "",
+              type: "bytes32",
+            },
+          ],
+          stateMutability: "pure",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "bytes",
+              name: "_proof",
+              type: "bytes",
+            },
+            {
+              internalType: "bytes32[]",
+              name: "_publicInputs",
+              type: "bytes32[]",
+            },
+          ],
+          name: "verify",
+          outputs: [
+            {
+              internalType: "bool",
+              name: "",
+              type: "bool",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+      ],
+      inheritedFunctions: {},
+    },
+  },
+} as const;
 
 export default deployedContracts satisfies GenericContractsDeclaration;

@@ -1,0 +1,16 @@
+{
+  "name": "@makoto/scrolltest",
+  "version": "0.0.1",
+  "description": "Scroll proof verifier test",
+  "scripts": {
+    "test": "ts-node src/index.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^18.11.17",
+    "dotenv": "^16.4.5",
+    "ethers": "^5.7.2",
+    "node-fetch": "^2.7.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.4"
+  }
+}

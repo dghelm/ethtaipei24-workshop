@@ -22,10 +22,31 @@ const deployYourContract: DeployFunction = async function (hre: HardhatRuntimeEn
   const { deployer } = await hre.getNamedAccounts();
   const { deploy } = hre.deployments;
 
-  await deploy("YourContract", {
+  // start with verifier so we can init other contract with address
+  // const verifiers = await readdir("contracts/verifiers");
+  const contractName = "KnowDifferentNumbers.sol";
+
+  // for (const contractName of verifiers) {
+  const verifierName = "Verifier" + contractName.replace(".sol", "");
+  await deploy(verifierName, {
     from: deployer,
     // Contract constructor arguments
-    args: [deployer],
+    args: [],
+    contract: `contracts/verifiers/${contractName}:UltraVerifier`,
+    log: true,
+    // autoMine: can be passed to the deploy function to make the deployment process faster on local networks by
+    // automatically mining the contract deployment transaction. There is no effect on live networks.
+    autoMine: true,
+  });
+  // }
+
+  const verifier = await hre.ethers.getContract<Contract>(verifierName);
+  const verifierAddress = await verifier.getAddress();
+
+  await deploy("ProofGatedValueSetter", {
+    from: deployer,
+    // Contract constructor arguments
+    args: [verifierAddress],
     log: true,
     // autoMine: can be passed to the deploy function to make the deployment process faster on local networks by
     // automatically mining the contract deployment transaction. There is no effect on live networks.
@@ -33,8 +54,9 @@ const deployYourContract: DeployFunction = async function (hre: HardhatRuntimeEn
   });
 
   // Get the deployed contract to interact with it after deploying.
-  const yourContract = await hre.ethers.getContract<Contract>("YourContract", deployer);
-  console.log("👋 Initial greeting:", await yourContract.greeting());
+  const proofGatedValueSetter = await hre.ethers.getContract<Contract>("ProofGatedValueSetter", verifierAddress);
+  console.log("👋 Initial value:", await proofGatedValueSetter.secureValue());
+  console.log("👋 Contract address:", verifierAddress);
 };
 
 export default deployYourContract;
