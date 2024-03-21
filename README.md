@@ -1,3 +1,13 @@
+This repo show workshop code that walks through creating the following app:
+
+- Build a circuit with Noir confirming the user knows two distinct numbers, compile a verifier for EVM, deploy & test with Remix.
+- Write a contract / dApp that requires a proof to set a secure value, running in scaffold-eth 2.
+- Write a contract for the base layer lets a user verify a piece of L2 state using `eth_getProof` from a CLI tool.
+
+Slides are [here](https://docs.google.com/presentation/d/1BYUzeZKAXTfdkuxrPZ5yYdCVxphoOTMTXcVu1ej7utc/edit?usp=sharing).
+
+
+<hr>
 # 🏗 Scaffold-ETH 2
 
 <h4 align="center">

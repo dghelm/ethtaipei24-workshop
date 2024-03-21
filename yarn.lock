@@ -970,19 +970,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@makoto/scrolltest@workspace:packages/cli":
-  version: 0.0.0-use.local
-  resolution: "@makoto/scrolltest@workspace:packages/cli"
-  dependencies:
-    "@types/node": ^18.11.17
-    dotenv: ^16.4.5
-    ethers: ^5.7.2
-    node-fetch: ^2.7.0
-    ts-node: ^10.9.1
-    typescript: ^4.9.4
-  languageName: unknown
-  linkType: soft
-
 "@mapbox/node-pre-gyp@npm:^1.0.5":
   version: 1.0.11
   resolution: "@mapbox/node-pre-gyp@npm:1.0.11"
@@ -5365,6 +5352,19 @@ __metadata:
   checksum: c3243e41974445691c63f8b405df1d5a24049dc33d324fe448dc572e561a7b772ae982692900b1a5960901cc4fc7def25a629b9c69a4208ee89d12ab3332617a
   languageName: node
   linkType: hard
+
+"cli@workspace:packages/cli":
+  version: 0.0.0-use.local
+  resolution: "cli@workspace:packages/cli"
+  dependencies:
+    "@types/node": ^18.11.17
+    dotenv: ^16.4.5
+    ethers: ^5.7.2
+    node-fetch: ^2.7.0
+    ts-node: ^10.9.1
+    typescript: ^4.9.4
+  languageName: unknown
+  linkType: soft
 
 "client-only@npm:0.0.1":
   version: 0.0.1

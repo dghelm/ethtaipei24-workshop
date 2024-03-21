@@ -35,6 +35,7 @@
     "prepare": "install-self-peers -- --ignore-scripts",
     "start": "yarn workspace @se-2/nextjs dev",
     "test": "yarn hardhat:test",
+    "cli:test": "yarn workspace cli test",
     "vercel": "vercel",
     "vercel:yolo": "vercel --build-env NEXT_PUBLIC_IGNORE_BUILD_ERROR=true",
     "verify": "yarn workspace @se-2/hardhat verify"
