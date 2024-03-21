@@ -2,12 +2,7 @@
 pragma solidity >=0.8.0 <0.9.0;
 
 interface IScrollChainCommitmentVerifier {
-function verifyStateCommitment(
-        uint256 batchIndex,
-        address account,
-        bytes32 storageKey,
-        bytes calldata proof
-    ) external view returns (bytes32 storageValue);
+	function verifyStateCommitment(uint256 batchIndex, address account, bytes32 storageKey, bytes calldata proof) external view returns (bytes32 storageValue);
 }
 
 contract L2ValueCacher {
@@ -19,7 +14,7 @@ contract L2ValueCacher {
 	event SecureValueChange(
 		address indexed valueSetter,
 		bytes32 newValue,
-        uint256 batchIndex
+		uint256 batchIndex
 	);
 
 	constructor(address scrollChainCommitmentVerifierAddress) {
@@ -30,12 +25,12 @@ contract L2ValueCacher {
 
 	function setSecureValueCache(uint256 _batchIndex, address _account, bytes32 _storageKey, bytes calldata _proof) public returns (bool){
 
-        require(_batchIndex > cacheBatchIndex, "Cache must be more recent than existing cache.");
+		require(_batchIndex > cacheBatchIndex, "Cache must be more recent than existing cache.");
 
-        bytes32 l2SecureValue = stateCommitmentVerifier.verifyStateCommitment(_batchIndex, _account, _storageKey, _proof);
+		bytes32 l2SecureValue = stateCommitmentVerifier.verifyStateCommitment(_batchIndex, _account, _storageKey, _proof);
 
 		secureValueCache = l2SecureValue;
-        cacheBatchIndex = _batchIndex;
+		cacheBatchIndex = _batchIndex;
 
 		emit SecureValueChange(msg.sender, l2SecureValue, _batchIndex);
 
